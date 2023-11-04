@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js" integrity="sha512-KZmyTq3PLx9EZl0RHShHQuXtrvdJ+m35tuOiwlcZfs/rE7NZv29ygNA8SFCkMXTnYZQK2OX0Gm2qKGfvWEtRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="main" ng-app="myshopingList" ng-controller="myctrl">
+        <h1>grocery list</h1>
+        <table id="customers">
+            <tr>
+                <th>item name</th>
+                <th>Quantity</th>
+                <th>photourl</th>
+                <th>action</th>
+            </tr>
+            <tr>
+                <td> <input type="text" placeholder="add items" ng-model="itemname"></td>
+                <td> <input type="number" placeholder="add items" ng-model="Quantity"></td>
+                <td> <input type="text" placeholder="add items" ng-model="photourl"></td>
+                <td><button ng-click="addItem()">addItedm</button></td>
+            </tr>
+        </table>
+        
+        <table cellpadding="0" cellspacing="0" ng-show="IsVisible" id="customers">
+            <tr>
+                <th>item name</th>
+                <th>Quantity</th>
+                <th>photourl</th>
+                <th>action</th>
+                <th></th>
+            </tr>
+            
+            <tbody ng-repeat="y in customers" >
+                <tr >
+                    <td>{{y.item}}</td>
+                    <td>{{y.Quantity}}</td>
+                    <td>{{y.photourl}}</td>
+                    <td><button ng-click="view($index)">View</button></td>
+                    <td><button ng-click="remove($index)">remove</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
